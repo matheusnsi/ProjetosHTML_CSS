@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #e0eafc, #cfdef3);
+  padding: 20px;
+}
+
+.skills-wrapper {
+  width: 100%;
+  max-width: 520px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 30px 25px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.skills-wrapper h1 {
+  font-size: 1.4rem;
+  margin-bottom: 22px;
+  color: #1f2937;
+}
+
+.skill-box {
+  margin-bottom: 18px;
+}
+
+.skill-box:last-child {
+  margin-bottom: 0;
+}
+
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: #374151;
+  font-weight: 500;
+}
+
+.bar {
+  height: 12px;
+  width: 100%;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress {
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  animation: fillBar 1.7s ease forwards;
+}
+
+.progress.html {
+  width: 90%;
+  background: linear-gradient(90deg, #ff7b00, #ffae42);
+  animation-delay: 0.1s;
+}
+
+.progress.css {
+  width: 80%;
+  background: linear-gradient(90deg, #2563eb, #60a5fa);
+  animation-delay: 0.25s;
+}
+
+.progress.js {
+  width: 70%;
+  background: linear-gradient(90deg, #f59e0b, #fcd34d);
+  animation-delay: 0.4s;
+}
+
+.progress.react {
+  width: 65%;
+  background: linear-gradient(90deg, #06b6d4, #67e8f9);
+  animation-delay: 0.55s;
+}
+
+@keyframes fillBar {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--target, 100%);
+  }
+}
+
+/* Faz a animação respeitar o width já definido em cada classe */
+.progress.html { --target: 90%; }
+.progress.css  { --target: 80%; }
+.progress.js   { --target: 70%; }
+.progress.react{ --target: 65%; }
