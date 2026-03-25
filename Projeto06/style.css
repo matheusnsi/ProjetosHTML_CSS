@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #6d44b8;
+  padding: 20px;
+}
+
+.container {
+  max-width: 700px;
+  width: 100%;
+  background: #fff;
+  padding: 40px 50px 40px 40px;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.container .topic {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #6d44b8;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content .list {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  margin-right: 50px;
+  position: relative;
+}
+
+.list label {
+  height: 60px;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 60px;
+  cursor: pointer;
+  padding-left: 25px;
+  transition: all 0.5s ease;
+  color: #333;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+}
+
+.list label i {
+  margin-right: 10px;
+}
+
+/* Escondendo os inputs */
+input[type="radio"] {
+  display: none;
+}
+
+/* Movimentação do Slider */
+.list .slider {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 60px;
+  width: 100%;
+  border-radius: 12px;
+  background: #6d44b8;
+  transition: all 0.4s ease;
+}
+
+#home:checked ~ .list .slider { top: 0; }
+#blog:checked ~ .list .slider { top: 60px; }
+#code:checked ~ .list .slider { top: 120px; }
+#help:checked ~ .list .slider { top: 180px; }
+#about:checked ~ .list .slider { top: 240px; }
+
+/* Mudança de cor do ícone/texto quando selecionado */
+#home:checked ~ .list .home,
+#blog:checked ~ .list .blog,
+#code:checked ~ .list .code,
+#help:checked ~ .list .help,
+#about:checked ~ .list .about {
+  color: #fff;
+}
+
+/* Exibição do Texto correspondente */
+.text-content {
+  width: 80%;
+}
+
+.text-content .text {
+  display: none; /* Esconde todos inicialmente */
+}
+
+.text-content .title {
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #6d44b8;
+}
+
+/* Lógica para mostrar o texto da aba marcada */
+#home:checked ~ .text-content .home,
+#blog:checked ~ .text-content .blog,
+#code:checked ~ .text-content .code,
+#help:checked ~ .text-content .help,
+#about:checked ~ .text-content .about {
+  display: block;
+}
