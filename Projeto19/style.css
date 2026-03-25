@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --bg: #0f172a;
+  --nav-bg: #111827;
+  --text: #cbd5e1;
+  --active: #22d3ee;
+  --tooltip-bg: #22d3ee;
+  --tooltip-text: #082f49;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at top, #1e293b, var(--bg));
+  padding: 20px;
+}
+
+.nav {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: var(--nav-bg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 12px;
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.nav-link {
+  --line-scale: 0;
+  position: relative;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  transition: color 0.25s ease, background 0.25s ease;
+}
+
+/* Linha animada inferior */
+.nav-link::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 6px;
+  height: 2px;
+  background: var(--active);
+  border-radius: 999px;
+  transform: scaleX(var(--line-scale));
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+/* Tooltip */
+.nav-link::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 12px);
+  transform: translateX(-50%) translateY(8px) scale(0.92);
+  background: var(--tooltip-bg);
+  color: var(--tooltip-text);
+  font-size: 0.74rem;
+  font-weight: 600;
+  white-space: nowrap;
+  line-height: 1;
+  padding: 8px 10px;
+  border-radius: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.28s ease;
+  box-shadow: 0 10px 22px rgba(34, 211, 238, 0.35);
+}
+
+/* Setinha do tooltip */
+.nav-link span {
+  display: none;
+}
+.nav-link .arrow {
+  display: none;
+}
+.nav-link::selection {
+  background: transparent;
+}
+
+/* Triângulo usando extra pseudo-elemento com box-shadow hack */
+.nav-link:hover {
+  color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.03);
+  --line-scale: 1;
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+
+/* Triângulo do tooltip */
+.nav-link:hover {
+  overflow: visible;
+}
+.nav-link:hover::before {
+  transform: scaleX(1);
+}
+.nav-link:focus-visible {
+  outline: none;
+  color: #e2e8f0;
+  --line-scale: 1;
+}
+
+/* Estado ativo */
+.nav-link.active {
+  color: #e2e8f0;
+  background: rgba(34, 211, 238, 0.08);
+  --line-scale: 1;
+}
+
+/* Bolinha decorativa no ativo */
+.nav-link.active i {
+  display: none;
+}
+.nav-link.active::marker {
+  content: "";
+}
+
+/* Responsivo */
+@media (max-width: 560px) {
+  .nav {
+    gap: 6px;
+    padding: 10px;
+  }
+
+  .nav-link {
+    font-size: 0.88rem;
+    padding: 9px 11px;
+  }
+
+  .nav-link::after {
+    font-size: 0.68rem;
+    padding: 7px 8px;
+  }
+}
