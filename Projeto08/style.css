@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #EED891; /* Cor de fundo suave */
+}
+
+/* Contêiner com perspectiva para o efeito 3D */
+.wrapper {
+  height: 250px;
+  width: 450px;
+  perspective: 1000px;
+}
+
+.flip-card {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d; /* Permite elementos filhos em 3D */
+}
+
+/* Gira o cartão ao passar o mouse */
+.wrapper:hover .flip-card {
+  transform: rotateY(180deg);
+}
+
+.card {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #D48600; /* Cor do cartão */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden; /* Esconde a face oposta ao girar */
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  border-top: 2px solid #cc6600;
+  border-left: 2px solid #cc6600;
+}
+
+/* Face de trás começa invertida */
+.back {
+  transform: rotateY(180deg);
+}
+
+/* Estilo dos Símbolos (Círculo, Triângulo, Quadrado) */
+.front span {
+  border: 8px solid #4d2600;
+  margin: 0 15px;
+}
+
+.circle {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+}
+
+.triangle {
+  height: 0;
+  width: 0;
+  border-left: 45px solid transparent !important;
+  border-right: 45px solid transparent !important;
+  border-bottom: 80px solid #4d2600 !important;
+  border-top: none !important;
+  background: none;
+  border: none !important;
+}
+
+.square {
+  height: 70px;
+  width: 70px;
+}
+
+/* Conteúdo da parte de trás */
+.back .content {
+  color: #4d2600;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+}
