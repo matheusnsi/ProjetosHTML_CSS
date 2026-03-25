@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --bg: #f3f6ff;
+  --nav-bg: #ffffff;
+  --text: #4b5563;
+  --active-text: #1d4ed8;
+  --bubble: #e0e7ff;
+  --shadow: 0 14px 30px rgba(29, 78, 216, 0.16);
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at top, #e9efff, var(--bg));
+  padding: 20px;
+}
+
+.nav {
+  width: min(760px, 100%);
+}
+
+.nav input {
+  display: none;
+}
+
+.tabs {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background: var(--nav-bg);
+  border-radius: 18px;
+  padding: 10px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.tab {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 14px 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text);
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.indicator {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  left: 10px;
+  width: calc((100% - 20px) / 5);
+  height: calc(100% - 20px);
+  background: var(--bubble);
+  border-radius: 14px;
+  transition:
+    transform 0.45s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    width 0.35s ease;
+}
+
+/* Active text */
+#home:checked ~ .tabs label[for="home"],
+#about:checked ~ .tabs label[for="about"],
+#services:checked ~ .tabs label[for="services"],
+#portfolio:checked ~ .tabs label[for="portfolio"],
+#contact:checked ~ .tabs label[for="contact"] {
+  color: var(--active-text);
+  font-weight: 600;
+}
+
+/* Elastic movement positions */
+#home:checked ~ .tabs .indicator {
+  transform: translateX(0%);
+}
+#about:checked ~ .tabs .indicator {
+  transform: translateX(100%);
+}
+#services:checked ~ .tabs .indicator {
+  transform: translateX(200%);
+}
+#portfolio:checked ~ .tabs .indicator {
+  transform: translateX(300%);
+}
+#contact:checked ~ .tabs .indicator {
+  transform: translateX(400%);
+}
+
+/* Small screens */
+@media (max-width: 640px) {
+  .tab {
+    font-size: 0.82rem;
+    padding: 12px 4px;
+  }
+
+  .tabs {
+    border-radius: 14px;
+    padding: 8px;
+  }
+
+  .indicator {
+    top: 8px;
+    left: 8px;
+    width: calc((100% - 16px) / 5);
+    height: calc(100% - 16px);
+    border-radius: 10px;
+  }
+}
