@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #130f40;
+  font-family: Arial, sans-serif;
+  user-select: none;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  height: 220px;
+  background: #ecf0f1;
+  border-radius: 20px;
+}
+
+.center .system {
+  position: absolute;
+  padding: 15px 24px;
+  color: #2691d9;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.center .group {
+  padding: 50px 24px;
+}
+
+.center .item {
+  margin: 24px 0;
+  font-weight: 600;
+  color: #222;
+}
+
+/* Toggle base */
+.center input[type="checkbox"] {
+  position: relative;
+  height: 18px;
+  width: 36px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #fff;
+  outline: none;
+  cursor: pointer;
+  border-radius: 20px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+}
+
+/* Bolinha */
+.center input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 20px;
+  top: 0;
+  left: 0;
+  transform: scale(0.85);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(#fff, #f2f2f2, #e6e6e6, #d9d9d9);
+  transition: 0.5s;
+}
+
+/* Estado ativo */
+.center input[type="checkbox"]:checked {
+  background: #387cfa;
+}
+
+.center input[type="checkbox"]:checked::before {
+  left: 18px;
+}
+
+/* Coluna dos toggles */
+.center .box-group {
+  position: absolute;
+  top: 70px;
+  left: 215px;
+}
+
+.box-group .box2 {
+  margin-top: 18px;
+}
