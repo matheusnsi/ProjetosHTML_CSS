@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #e0e0e0;
+}
+
+.card {
+    display: flex;
+    width: 850px;
+    height: 480px;
+    background: #fff;
+    border-radius: 25px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden; /* Corta o círculo rosa que sobra */
+}
+
+/* --- LADO ESQUERDO --- */
+.left-side {
+    flex: 1.6;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    z-index: 10; /* Garante que o texto fique acima do fundo se necessário */
+}
+
+.left-side h2 {
+    font-size: 35px;
+    font-weight: 600;
+    color: #333;
+}
+
+.left-side p {
+    font-size: 14px;
+    color: #555;
+    margin: 10px 0 20px 0;
+    line-height: 1.6;
+}
+
+.rating {
+    color: #ff4757;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.price {
+    margin-bottom: 25px;
+}
+
+.old-price {
+    display: block;
+    text-decoration: line-through;
+    color: #999;
+    font-size: 20px;
+}
+
+.new-price {
+    font-size: 40px;
+    font-weight: 700;
+    color: #ff4757;
+    line-height: 1;
+}
+
+.add-btn {
+    background: #17e9e0;
+    color: #fff;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.add-btn:hover {
+    background: #12c7bf;
+}
+
+/* --- LADO DIREITO --- */
+.right-side {
+    flex: 1;
+    background: #ff4757;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Joga o texto para baixo */
+    align-items: flex-end;   /* Joga o texto para a direita */
+    padding: 40px;
+    color: #fff;
+}
+
+/* O corte branco arredondado */
+.circle {
+    position: absolute;
+    top: 50%;
+    left: -190px;
+    transform: translateY(-50%);
+    width: 550px;
+    height: 550px;
+    background: #ff4757;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* A Câmera */
+.product-img {
+    position: absolute;
+    width: 500px; /* Ajuste se a sua imagem for muito grande */
+    top: 50%;
+    left: -100px; /* Faz ela invadir o lado esquerdo */
+    transform: translateY(-50%);
+    z-index: 2; /* Acima do círculo branco */
+    pointer-events: none; /* Ignora o mouse para não atrapalhar cliques */
+}
+
+/* Informações do lado Rosa */
+.product-info {
+    position: relative;
+    z-index: 3; /* Fica por cima de TUDO (Círculo e Câmera) */
+    text-align: right;
+}
+
+.brand {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.product-info h3 {
+    font-size: 26px;
+    font-weight: 600;
+    margin: 5px 0;
+}
+
+.shipping {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+.login-btn {
+    background: transparent;
+    color: #fff;
+    border: 1.5px solid #fff;
+    padding: 8px 22px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: #fff;
+    color: #ff4757;
+}
