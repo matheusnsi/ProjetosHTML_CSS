@@ -1,0 +1,278 @@
+/* --- Google Fonts & Reset --- */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* --- Variáveis de Cor --- */
+:root {
+  --primary: #6c5ce7;
+  --text-primary: #fff;
+  --text-secondary: #aaa;
+  --text-dark: #333;
+  --bg-primary: #fff;
+}
+
+/* --- Base --- */
+.container {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 15px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 500;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* --- Cabeçalho --- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: transparent;
+  z-index: 100;
+  transition: background 0.3s ease;
+}
+
+.nav {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav__link {
+  color: var(--text-primary);
+  font-weight: 500;
+  padding-bottom: 5px;
+  position: relative;
+}
+
+.nav__link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--text-primary);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+.nav__link:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.button-login {
+  padding: 8px 24px;
+  background-color: var(--bg-primary);
+  color: var(--text-dark);
+  border: 2px solid var(--bg-primary);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.button-login:hover {
+  background-color: transparent;
+  color: var(--text-primary);
+}
+
+/* --- Home --- */
+.home {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background: url("https://images.unsplash.com/photo-1542393545-10f5cde2c810?auto=format&fit=crop&q=80&w=2801")
+    no-repeat center center/cover;
+}
+/* Overlay escuro */
+.home::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* --- Formulário Wrapper --- */
+.form-wrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  max-width: 420px;
+  width: 100%;
+  background: var(--bg-primary);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 101;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+.form-wrapper.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+.form-wrapper.show ~ .home {
+  filter: blur(5px);
+}
+
+.form-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.5rem;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.form-close:hover {
+  color: var(--text-dark);
+}
+
+.form-box h2 {
+  font-size: 1.75rem;
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.input-box {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  margin-top: 25px;
+}
+
+.input-box input {
+  height: 100%;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 0 15px;
+  outline: none;
+  font-size: 1rem;
+  color: var(--text-dark);
+  background: transparent;
+}
+/* Efeito label flutuante */
+.input-box input:focus,
+.input-box input:valid {
+  border-color: var(--primary);
+}
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: #999;
+  pointer-events: none;
+  background-color: var(--bg-primary);
+  padding: 0 4px;
+  transition: all 0.2s ease;
+}
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+  top: 0;
+  font-size: 0.85rem;
+  color: var(--primary);
+}
+
+.eye-icon {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  font-size: 1.25rem;
+  color: #999;
+  cursor: pointer;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.checkbox-box {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.checkbox-box input {
+  accent-color: var(--primary);
+}
+.checkbox-box label,
+.form-options a {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.form-button {
+  width: 100%;
+  padding: 12px 0;
+  margin-top: 25px;
+  background-color: var(--primary);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.form-button:hover {
+  background-color: #5a4fcf;
+}
+
+.login-signup {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Lógica de troca de formulário */
+.form-wrapper .signup {
+  display: none;
+}
+.form-wrapper.show-signup .signup {
+  display: block;
+}
+.form-wrapper.show-signup .login {
+  display: none;
+}

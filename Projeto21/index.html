@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website com Formulário</title>
+
+  <!-- Google Fonts (Poppins) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Boxicons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Cabeçalho de Navegação -->
+  <header class="header">
+    <nav class="nav container">
+      <a href="#" class="nav__logo">MatheusLab</a>
+      <ul class="nav__list">
+        <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">Product</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">Services</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">Contact</a></li>
+      </ul>
+      <button class="nav__button button-login">Login</button>
+    </nav>
+  </header>
+
+  <!-- Seção Home -->
+  <section class="home">
+    <div class="home__content">
+      <!-- O conteúdo principal do site ficaria aqui -->
+    </div>
+  </section>
+
+  <!-- Formulário (Login & Registro) -->
+  <div class="form-wrapper">
+    <!-- Ícone para fechar -->
+    <i class='bx bx-x form-close'></i>
+
+    <!-- Formulário de Login -->
+    <div class="form-box login">
+      <h2>Login</h2>
+      <form action="#">
+        <div class="input-box">
+          <input type="email" placeholder=" " required />
+          <label>Seu email</label>
+        </div>
+        <div class="input-box">
+          <input type="password" placeholder=" " required />
+          <label>Sua senha</label>
+          <i class='bx bx-hide eye-icon'></i>
+        </div>
+        <div class="form-options">
+          <div class="checkbox-box">
+            <input type="checkbox" id="lembrar" />
+            <label for="lembrar">Lembrar-me</label>
+          </div>
+          <a href="#">Esqueceu a senha?</a>
+        </div>
+        <button class="form-button">Entrar</button>
+        <div class="login-signup">
+          Não tem uma conta? <a href="#" id="signup-link">Cadastre-se</a>
+        </div>
+      </form>
+    </div>
+
+    <!-- Formulário de Registro -->
+    <div class="form-box signup">
+      <h2>Cadastro</h2>
+      <form action="#">
+        <div class="input-box">
+          <input type="email" placeholder=" " required />
+          <label>Seu email</label>
+        </div>
+        <div class="input-box">
+          <input type="password" placeholder=" " required />
+          <label>Crie uma senha</label>
+          <i class='bx bx-hide eye-icon'></i>
+        </div>
+        <div class="input-box">
+          <input type="password" placeholder=" " required />
+          <label>Confirme a senha</label>
+          <i class='bx bx-hide eye-icon'></i>
+        </div>
+        <button class="form-button">Cadastrar</button>
+        <div class="login-signup">
+          Já tem uma conta? <a href="#" id="login-link">Login</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
