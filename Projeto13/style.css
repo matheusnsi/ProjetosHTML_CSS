@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.hero {
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    padding: 20px 10%;
+    position: relative;
+    overflow: hidden; /* Garante que nada saia da tela */
+}
+
+/* Barra de Navegação */
+nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 140px;
+    cursor: pointer;
+}
+
+nav ul {
+    flex: 1;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    list-style: none;
+    margin: 0 20px;
+    position: relative; /* Necessário para o efeito do antes (::before) */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    z-index: 2;
+    position: relative;
+}
+
+/* O Efeito Amarelo do Menu (Hover) */
+nav ul li::before {
+    content: '';
+    width: 100%;
+    height: 0; /* Começa invisível */
+    background: #ffeb3b;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    transition: height 0.4s; /* Tempo da subida do fundo amarelo */
+    border-radius: 10px;
+}
+
+nav ul li:hover::before {
+    height: 100%; /* Preenche o fundo ao passar o mouse */
+}
+
+.menu-img {
+    width: 40px;
+    cursor: pointer;
+    margin-left: 40px;
+}
+
+/* Layout do Conteúdo */
+.row {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.col {
+    flex-basis: 50%;
+    position: relative;
+}
+
+.col h1 {
+    font-size: 85px;
+    color: #333;
+    line-height: 1.1;
+}
+
+.col p {
+    font-size: 16px;
+    color: #555;
+    margin: 20px 0 40px;
+}
+
+/* Botão Estilizado */
+.btn {
+    text-decoration: none;
+    background: #333;
+    color: #fff;
+    padding: 15px 45px;
+    border-radius: 30px;
+    font-weight: 600;
+    display: inline-block;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #555;
+}
+
+/* Imagens e Sobreposição */
+.feature-img {
+    width: 90%;
+    margin-left: 50px;
+}
+
+/* Esta é a imagem menor que fica "por cima" */
+.thumbnail-img {
+    width: 250px;
+    position: absolute;
+    bottom: 0;
+    left: -50px; /* Joga a imagem para a esquerda, sobrepondo a maior */
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
