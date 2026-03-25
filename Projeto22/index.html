@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom Radio Buttons</title>
+  
+  <!-- Google Fonts (Poppins) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <div class="option-box header">
+      <h2>Selecione sua opção</h2>
+    </div>
+
+    <div class="option-container">
+      <input type="radio" name="option" id="gamer" checked />
+      <input type="radio" name="option" id="youtuber" />
+      <input type="radio" name="option" id="student" />
+      <input type="radio" name="option" id="developer" />
+
+      <label for="gamer" class="option" id="gamer-label">
+        <span class="dot"></span>
+        <span class="text">Gamer</span>
+      </label>
+
+      <label for="youtuber" class="option" id="youtuber-label">
+        <span class="dot"></span>
+        <span class="text">Youtuber</span>
+      </label>
+
+      <label for="student" class="option" id="student-label">
+        <span class="dot"></span>
+        <span class="text">Estudante</span>
+      </label>
+
+      <label for="developer" class="option" id="developer-label">
+        <span class="dot"></span>
+        <span class="text">Developer</span>
+      </label>
+    </div>
+  </div>
+</body>
+</html>
