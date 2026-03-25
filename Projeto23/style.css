@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #f0f0f0;
+}
+
+.rating-wrapper {
+  position: relative;
+  width: 400px;
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rating-wrapper input {
+  display: none;
+}
+
+.rating-content {
+  text-align: center;
+}
+
+.stars {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.star {
+  cursor: pointer;
+  font-size: 50px;
+  color: #ccc;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+/* --- LÓGICA DE HOVER CORRIGIDA --- */
+/* Quando o mouse passa sobre uma estrela, ela e as seguintes ficam amarelas */
+.stars:hover .star {
+  color: #ccc;
+}
+
+/* A estrela que está com o mouse em cima define o limite. As após ela voltam a ficar cinzas */
+.star:hover ~ .star {
+  color: #ccc;
+}
+
+/* Quando passa o mouse sobre uma estrela, ela e as ANTERIORES ficam amarelas */
+.star:hover,
+.star:hover ~ .star {
+  color: #ffc107;
+}
+
+
+/* --- LÓGICA DE SELEÇÃO CORRIGIDA --- */
+/* Pinta de amarelo a estrela correspondente ao input selecionado e todas as anteriores */
+#star-1:checked ~ .rating-content .star-1 { color: #ffc107; }
+#star-2:checked ~ .rating-content .star-1,
+#star-2:checked ~ .rating-content .star-2 { color: #ffc107; }
+#star-3:checked ~ .rating-content .star-1,
+#star-3:checked ~ .rating-content .star-2,
+#star-3:checked ~ .rating-content .star-3 { color: #ffc107; }
+#star-4:checked ~ .rating-content .star-1,
+#star-4:checked ~ .rating-content .star-2,
+#star-4:checked ~ .rating-content .star-3,
+#star-4:checked ~ .rating-content .star-4 { color: #ffc107; }
+#star-5:checked ~ .rating-content .star-1,
+#star-5:checked ~ .rating-content .star-2,
+#star-5:checked ~ .rating-content .star-3,
+#star-5:checked ~ .rating-content .star-4,
+#star-5:checked ~ .rating-content .star-5 { color: #ffc107; }
+
+
+/* Footer (Texto e Emoji) - Sem alterações */
+.footer {
+  margin-top: 20px;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #ffc107;
+  height: 30px;
+  display: none;
+}
+
+.footer .text::after {
+  margin-left: 5px;
+}
+
+#star-1:checked ~ .rating-content .footer,
+#star-2:checked ~ .rating-content .footer,
+#star-3:checked ~ .rating-content .footer,
+#star-4:checked ~ .rating-content .footer,
+#star-5:checked ~ .rating-content .footer {
+  display: block;
+}
+
+#star-1:checked ~ .rating-content .text::before { content: "Odiei"; }
+#star-1:checked ~ .rating-content .text::after { content: "😠"; }
+#star-2:checked ~ .rating-content .text::before { content: "Não gostei"; }
+#star-2:checked ~ .rating-content .text::after { content: "😒"; }
+#star-3:checked ~ .rating-content .text::before { content: "É... ok"; }
+#star-3:checked ~ .rating-content .text::after { content: "😄"; }
+#star-4:checked ~ .rating-content .text::before { content: "Gostei"; }
+#star-4:checked ~ .rating-content .text::after { content: "😎"; }
+#star-5:checked ~ .rating-content .text::before { content: "Amei"; }
+#star-5:checked ~ .rating-content .text::after { content: "😍"; }
